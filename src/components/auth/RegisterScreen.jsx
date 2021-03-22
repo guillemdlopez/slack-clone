@@ -1,12 +1,15 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import Swal from 'sweetalert2';
 import useForm from '../../hooks/useForm';
 
 import slack from '../../style/images/slack-logo.png';
+import { startRegistration } from '../../actions/auth';
 
 const RegisterScreen = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const [formValues, handleInputChange, reset] = useForm({
     firstName: '',
@@ -20,28 +23,26 @@ const RegisterScreen = () => {
 
   const isFormValid = () => {
     const values = Object.values(formValues);
-    if (values.some((v) => v === '')) {
+    if (values.some(v => v === '')) {
       Swal.fire('Error', 'You forgot to enter some information', 'error');
       return false;
     }
     return true;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     if (isFormValid()) {
-      history.push('/');
+      dispatch(startRegistration(firstName, lastName, email, password));
       reset();
+      history.push('/');
     }
-  };
-
-  const handleLoginGoogle = () => {
-    history.push('/');
   };
 
   const handleClickLogin = () => {
     history.push('/login');
   };
+
   return (
     <div className="auth__main-div">
       <div className="auth__form-container">
@@ -88,23 +89,8 @@ const RegisterScreen = () => {
             onChange={handleInputChange}
           />
           <button className="btn btn__login btn-lg" type="submit">
-            Login
+            Sign up
           </button>
-
-          <div className="auth__google-login-separation">
-            <div className="auth__border"></div>
-            <p>OR</p>
-            <div className="auth__border"></div>
-          </div>
-
-          <div className="auth__google-btn" onClick={handleLoginGoogle}>
-            <img
-              src="https://rotulosmatesanz.com/wp-content/uploads/2017/09/2000px-Google_G_Logo.svg_.png"
-              alt="google-logo"
-              className="auth__google-logo"
-            />
-            <p>Sign in with Google</p>
-          </div>
 
           <p className="auth__btn-register" onClick={handleClickLogin}>
             Have already an account?

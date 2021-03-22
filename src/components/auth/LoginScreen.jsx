@@ -1,12 +1,16 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import useForm from '../../hooks/useForm';
 import Swal from 'sweetalert2';
 
 import slack from '../../style/images/slack-logo.png';
+import { startLogin, startLoginWithGoogle } from '../../actions/auth';
 
 const LoginScreen = () => {
   const history = useHistory();
+
+  const dispatch = useDispatch();
 
   const [formValues, handleInputChange, reset] = useForm({
     email: '',
@@ -14,7 +18,6 @@ const LoginScreen = () => {
   });
 
   const { email, password } = formValues;
-  console.log(email, password);
 
   const isFormValid = () => {
     if (!email || !password) {
@@ -24,15 +27,16 @@ const LoginScreen = () => {
     return true;
   };
 
-  const handleSubmit = (e) => {
+  const handleLogin = e => {
     e.preventDefault();
     if (isFormValid()) {
+      dispatch(startLogin(email, password));
       history.push('/');
-      reset();
     }
   };
 
-  const handleLoginGoogle = () => {
+  const handleGoogleLogin = () => {
+    dispatch(startLoginWithGoogle());
     history.push('/');
   };
 
@@ -43,7 +47,7 @@ const LoginScreen = () => {
   return (
     <div className="auth__main-div">
       <div className="auth__form-container">
-        <form className="auth__form" onSubmit={handleSubmit}>
+        <form className="auth__form" onSubmit={handleLogin}>
           <h1 className="auth__title">Login</h1>
           <img src={slack} alt="slack-logo" className="auth__slack-img" />
           <label htmlFor="email">Email</label>
@@ -75,7 +79,7 @@ const LoginScreen = () => {
             <div className="auth__border"></div>
           </div>
 
-          <div className="auth__google-btn" onClick={handleLoginGoogle}>
+          <div className="auth__google-btn" onClick={handleGoogleLogin}>
             <img
               src="https://rotulosmatesanz.com/wp-content/uploads/2017/09/2000px-Google_G_Logo.svg_.png"
               alt="google-logo"
