@@ -1,0 +1,27 @@
+.btn {
+  border: none;
+  border-radius: 4px;
+}
+
+.btn-lg {
+  padding: 10px 24px;
+}
+
+.btn__login {
+  background-color: white;
+  border: 1px solid $purple;
+  color: $purple;
+  width: 100%;
+  outline: none;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: $purple;
+    color: white;
+    cursor: pointer;
+  }
+
+  &:active {
+    outline: none;
+  }
+}

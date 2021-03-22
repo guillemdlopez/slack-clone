@@ -1,0 +1,8 @@
+.sidebar__main-div {
+  background-color: $purple;
+  height: 100%;
+  width: 15%;
+  color: $gray;
+  border-top: 1px solid lighten($color: $purple, $amount: 5);
+  padding: 30px;
+}

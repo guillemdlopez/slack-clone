@@ -1,0 +1,27 @@
+.searchbar__main-div {
+  background-color: $dark-purple;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.searchbar__bar-icon {
+  color: $gray;
+}
+
+.searchbar__input {
+  width: 30%;
+  border: 0.5px solid $gray;
+  border-radius: 4px;
+  height: 24px;
+  text-align: center;
+  background-color: transparent;
+  color: white;
+  margin-right: 10px;
+}
+
+.searchbar__input-icon {
+  flex-grow: 1;
+  text-align: center;
+}

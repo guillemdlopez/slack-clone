@@ -1,0 +1,110 @@
+.auth__main-div {
+  background-color: $green;
+  height: 100vh;
+  margin: 0px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth__form {
+  background-color: white;
+  padding: 30px;
+  border-radius: 4px;
+  box-shadow: 0px 0px 20px rgb(0 0 0 / 15%);
+
+  input {
+    display: block;
+    height: 30px;
+    width: 97%;
+    margin-bottom: 14px;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    padding: 4px;
+    margin-top: 4px;
+    border: none;
+    background: lighten($color: lightgray, $amount: 14);
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  label {
+    color: darken($color: $gray, $amount: 40);
+  }
+}
+
+.auth__form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth__slack-img {
+  width: 30%;
+  display: block;
+  margin: 20px auto;
+}
+
+.auth__title {
+  color: darken($color: $gray, $amount: 40);
+}
+
+.auth__google-btn {
+  background-color: $blue-google;
+  margin-top: 20px;
+  padding: 3px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgb(0, 0, 0, 0.15);
+  border-radius: 4px;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: darken($color: $blue-google, $amount: 10);
+  }
+  p {
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+.auth__google-logo {
+  width: 25px;
+  background-color: white;
+  padding: 7px;
+  border-radius: 4px;
+}
+
+.auth__btn-register {
+  margin-top: 30px;
+  font-weight: lighter;
+  cursor: pointer;
+}
+
+.auth__google-login-separation {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+
+  p {
+    margin: 0px 10px;
+    color: $gray;
+  }
+}
+
+.auth__border {
+  border-bottom: 1px solid $gray;
+  width: 45%;
+}
+
+.auth__first-last-name {
+  display: flex;
+  justify-content: space-between;
+}

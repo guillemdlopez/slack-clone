@@ -1,0 +1,17 @@
+/* MAIN config of the page */
+* {
+  margin: 0;
+}
+
+body {
+  margin: 0px;
+  font-family: var(--font-family);
+  margin-bottom: 40px;
+  font-size: 14px;
+}
+
+.container {
+  width: $container;
+  margin: 0 auto;
+  text-align: center;
+}

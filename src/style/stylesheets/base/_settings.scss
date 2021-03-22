@@ -1,0 +1,17 @@
+/**** GLOBAL VARIABLES (SCSS AND CSS) ****/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,300;1,400&display=swap');
+
+:root {
+  --font-family: 'Roboto', sans-serif;
+}
+
+/* 1) Colors */
+$purple: #440f49;
+$dark-purple: #330432;
+$green: #3d836b;
+$gray: #b1b0b1;
+$orange: #efba35;
+$blue-google: #4285f4;
+
+/* 2) Container */
+$container: 1100px;
