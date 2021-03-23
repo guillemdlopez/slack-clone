@@ -5,14 +5,18 @@ import useForm from '../../hooks/useForm';
 import Swal from 'sweetalert2';
 
 import slack from '../../style/images/slack-logo.png';
-import { startLogin, startLoginWithGoogle } from '../../actions/auth';
+import {
+  startLogin,
+  startLoginWithGitHub,
+  startLoginWithGoogle,
+} from '../../actions/auth';
 
 const LoginScreen = () => {
   const history = useHistory();
 
   const dispatch = useDispatch();
 
-  const [formValues, handleInputChange, reset] = useForm({
+  const [formValues, handleInputChange] = useForm({
     email: '',
     password: '',
   });
@@ -38,6 +42,10 @@ const LoginScreen = () => {
   const handleGoogleLogin = () => {
     dispatch(startLoginWithGoogle());
     history.push('/');
+  };
+
+  const handleGitHubLogin = () => {
+    dispatch(startLoginWithGitHub());
   };
 
   const handleClickRegister = () => {
@@ -86,6 +94,17 @@ const LoginScreen = () => {
               className="auth__google-logo"
             />
             <p>Sign in with Google</p>
+          </div>
+
+          {/* TODO: ENABLE SIGN IN WITH GITHUB */}
+
+          <div className="auth__github-btn" onClick={handleGitHubLogin}>
+            <img
+              src="https://image.flaticon.com/icons/png/512/25/25231.png"
+              alt="google-logo"
+              className="auth__google-logo"
+            />
+            <p>Sign in with GitHub</p>
           </div>
 
           <p className="auth__btn-register" onClick={handleClickRegister}>

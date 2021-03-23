@@ -11,7 +11,7 @@ const RegisterScreen = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const [formValues, handleInputChange, reset] = useForm({
+  const [formValues, handleInputChange] = useForm({
     firstName: '',
     lastName: '',
     email: '',
@@ -19,7 +19,6 @@ const RegisterScreen = () => {
   });
 
   const { firstName, lastName, email, password } = formValues;
-  console.log(email, password);
 
   const isFormValid = () => {
     const values = Object.values(formValues);
@@ -34,7 +33,6 @@ const RegisterScreen = () => {
     e.preventDefault();
     if (isFormValid()) {
       dispatch(startRegistration(firstName, lastName, email, password));
-      reset();
       history.push('/');
     }
   };
@@ -88,7 +86,7 @@ const RegisterScreen = () => {
             placeholder="······"
             onChange={handleInputChange}
           />
-          <button className="btn btn__login btn-lg" type="submit">
+          <button className="btn btn__signup btn-lg" type="submit">
             Sign up
           </button>
 
