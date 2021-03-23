@@ -27,7 +27,7 @@ export const startLoginWithGitHub = () => {
       .auth()
       .signInWithPopup(githubAuthProvider)
       .then(({ user }) => {
-        console.log(user);
+        dispatch(login(user.uid, user.displayName));
       });
   };
 };
