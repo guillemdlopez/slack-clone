@@ -33,7 +33,6 @@ const RegisterScreen = () => {
     e.preventDefault();
     if (isFormValid()) {
       dispatch(startRegistration(firstName, lastName, email, password));
-      history.push('/');
     }
   };
 
