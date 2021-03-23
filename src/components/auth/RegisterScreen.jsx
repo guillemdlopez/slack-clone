@@ -38,7 +38,7 @@ const RegisterScreen = () => {
   };
 
   const handleClickLogin = () => {
-    history.push('/login');
+    history.push('/auth/login');
   };
 
   return (

@@ -50,7 +50,6 @@ const LoginScreen = () => {
 
   const handleGoogleLogin = () => {
     dispatch(startLoginWithGoogle());
-    history.push('/');
   };
 
   const handleGitHubLogin = () => {
@@ -58,7 +57,7 @@ const LoginScreen = () => {
   };
 
   const handleClickRegister = () => {
-    history.push('/register');
+    history.push('/auth/register');
   };
 
   return (
