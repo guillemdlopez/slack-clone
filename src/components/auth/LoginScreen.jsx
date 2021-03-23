@@ -3,8 +3,10 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import useForm from '../../hooks/useForm';
 import Swal from 'sweetalert2';
+import validator from 'validator';
 
 import slack from '../../style/images/slack-logo.png';
+
 import {
   startLogin,
   startLoginWithGitHub,
@@ -24,8 +26,16 @@ const LoginScreen = () => {
   const { email, password } = formValues;
 
   const isFormValid = () => {
-    if (!email || !password) {
+    if (email.length === 0 || password.length === 0) {
       Swal.fire('Error', 'You forgot to enter your email or password', 'error');
+      return false;
+    }
+    if (!validator.isEmail(email)) {
+      Swal.fire(
+        'Error',
+        'The email should be an email. Makes sense right? ;)',
+        'error'
+      );
       return false;
     }
     return true;
@@ -35,7 +45,6 @@ const LoginScreen = () => {
     e.preventDefault();
     if (isFormValid()) {
       dispatch(startLogin(email, password));
-      history.push('/');
     }
   };
 
